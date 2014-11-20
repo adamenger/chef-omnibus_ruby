@@ -4,7 +4,7 @@ default['omnibus_ruby']['version'] = '2.1.2'
 # IMPORTANT! You must override this setting in order for the cookbook to work properly. 
 # You can host your package anywhere, but this should be the subdirectory in which the package lives.
 # e.g: http://your-site.com/downloads
-default['omnibus_ruby']['download_url'] = "https://s3.amazonaws.com/your-bucket-here"
+default['omnibus_ruby']['download_url'] = "https://s3.amazonaws.com/your-bucket"
 
 # path where we want to download the ruby package to, no trailing slash please!
 default['omnibus_ruby']['download_path'] = "/tmp"
