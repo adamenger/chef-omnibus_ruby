@@ -24,3 +24,12 @@ package "Installing Ruby #{node['omnibus_ruby']['version']}" do
   source "#{node['omnibus_ruby']['download_path']}/#{package_name}"
   action :install
 end
+
+group node['omnibus_ruby']['group']
+
+directory "/opt/ruby_#{node['omnibus_ruby']['version']}" do
+  action :create
+  owner  node['omnibus_ruby']['group']
+  group  node['omnibus_ruby']['group']
+  mode   0770
+end
