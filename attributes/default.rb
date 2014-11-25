@@ -1,8 +1,9 @@
 # default version of ruby to install
-default['omnibus_ruby']['version'] = '2.1.2'
+default['omnibus_ruby']['version'] = '2.1.5'
 
 # group required for interfacing with this ruby
-default['omnibus_ruby']['group'] = 'omnibus_ruby'
+default['omnibus_ruby']['group_name'] = 'omnibus_ruby'
+default['omnibus_ruby']['group_members'] = ['root']
 
 # IMPORTANT! You must override this setting in order for the cookbook to work properly. 
 # You can host your package anywhere, but this should be the subdirectory in which the package lives.

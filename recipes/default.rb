@@ -7,7 +7,7 @@ node['omnibus_ruby']['packages'].each do |p|
 end
 
 # construct package name and url from attributes
-package_name = "ruby_#{node['omnibus_ruby']['version']}.deb"
+package_name = "ruby-#{node['omnibus_ruby']['version']}.deb"
 package_url  = "#{node['omnibus_ruby']['download_url']}/#{package_name}"
 package_checksum = node['omnibus_ruby']['package_checksum']
 
@@ -25,11 +25,14 @@ package "Installing Ruby #{node['omnibus_ruby']['version']}" do
   action :install
 end
 
-group node['omnibus_ruby']['group']
-
-directory "/opt/ruby_#{node['omnibus_ruby']['version']}" do
+group node['omnibus_ruby']['group_name'] do
   action :create
-  owner  node['omnibus_ruby']['group']
-  group  node['omnibus_ruby']['group']
+  members node['omnibus_ruby']['group_members']
+end
+
+directory "/opt/ruby-#{node['omnibus_ruby']['version']}" do
+  action :create
+  owner  node['omnibus_ruby']['group_name']
+  group  node['omnibus_ruby']['group_name']
   mode   0770
 end

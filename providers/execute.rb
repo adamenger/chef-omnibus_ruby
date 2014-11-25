@@ -3,8 +3,8 @@ require 'chef/mixin/shell_out'
 include Chef::Mixin::ShellOut
 
 def load_current_resource
-  # the path of the ruby install assumes omnibus was built with ruby_<version>
-  @path                         = ["/opt/ruby_#{new_resource.ruby_version}/embedded/bin"] + new_resource.path + system_path
+  # the path of the ruby install assumes omnibus was built with ruby-<version>
+  @path                         = ["/opt/ruby-#{new_resource.ruby_version}/embedded/bin"] + new_resource.path + system_path
   @environment                  = new_resource.environment
   @environment["PATH"]          = @path.join(":")
 
